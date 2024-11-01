@@ -84,11 +84,11 @@ Navigation, Dialog 표시 등과 같은 state 변경에 대한 응답으로 무�
 
 <BlocProviderEagerSnippet />
 
-어떤 경우에는 `BlocProvider`를 사용하여 위젯 트리의 새 부분에 기존 bloc을 제공할 수 잇습니다. 이는 기존 bloc을 새 route에서 사용할 수 있도록 해야 할 때 가장 일반적으로 사용됩니다. 이 경우 `BlocProvider`는 bloc을 생성하지 않았으므로 자동으로 bloc을 close하지 않습니다.
+어떤 경우에는 `BlocProvider`를 사용하여 위젯 트리의 새 부분에 기존 bloc을 제공할 수 있습니다. 이는 기존 bloc을 새 route에서 사용할 수 있도록 해야 할 때 가장 일반적으로 사용됩니다. 이 경우 `BlocProvider`는 bloc을 생성하지 않았으므로 자동으로 bloc을 close하지 않습니다.
 
 <BlocProviderValueSnippet />
 
-그런 다음 `ChildA` 또는 `ScreenA`애서 다음을 사용하여 `BlocA`를 찾을 수 있습니다:
+그런 다음 `ChildA` 또는 `ScreenA`에서 다음을 사용하여 `BlocA`를 찾을 수 있습니다:
 
 <BlocProviderLookupSnippet />
 
@@ -108,7 +108,7 @@ Navigation, Dialog 표시 등과 같은 state 변경에 대한 응답으로 무�
 
 `listener`는 `BlocBuilder`의 `builder`와 달리 각 state 변경 (초기 state를 포함하지 **않음**)에 대해 한 번만 호출되며 `void` 함수입니다.
 
-만약 `bloc` 파라미터가 생략되면 `BlocBuilder`는 `BlocProvider`와 현재 `BuildContext`를 사용하여 자동으로 bloc을 조회합니다.
+만약 `bloc` 파라미터가 생략되면 `BlocListener`는 `BlocProvider`와 현재 `BuildContext`를 사용하여 자동으로 bloc을 조회합니다.
 
 <BlocListenerSnippet />
 
@@ -132,9 +132,9 @@ Navigation, Dialog 표시 등과 같은 state 변경에 대한 응답으로 무�
 
 ### BlocConsumer
 
-**BlocConsumer**는 새로운 state에 반응하기 위해 `builder`와 `listener`를 노출합니다. `BlocConsumer`는 중첩된 `BlocListener` 및 `BlocBuilder`와 유사하지만, 필요한 보일러플레이트 코드의 양을 줄입니다. `BlocConsumer`는 UI를 다시 빌드하고 `bloc`의 상태 변경에 대한 다른 반응을 실행해야 하는 경우에만 사용해야 합니다. `BlocConsumer`는 필수 `BlocWidgetBuilder` 및 `BlocWidgetListener`와 선택적인 `bloc`, `BlocBuilderCondition`, `BlocListenerCondition` 파라미터를 사용합니다.
+**BlocConsumer**는 새로운 state에 반응하기 위해 `builder`와 `listener`를 노출합니다. `BlocConsumer`는 중첩된 `BlocListener` 및 `BlocBuilder`와 유사하지만, 필요한 보일러플레이트 코드의 양을 줄입니다. `BlocConsumer`는 UI를 다시 빌드하고 `bloc`의 상태 변경에 대한 다른 반응을 실행해야 하는 경우에만 사용해야 합니다. `BlocConsumer`는 필수 `BlocWidgetBuilder` 및 `BlocWidgetListener`와 선택적인 `bloc`, `BlocBuilderCondition`, `BlocListenerCondition` 파라미터를 사용합니다.∆
 
-만약 `bloc` 파라미터가 생략되면 `BlocBuilder`는 `BlocProvider`와 현재 `BuildContext`를 사용하여 자동으로 bloc을 조회합니다.
+만약 `bloc` 파라미터가 생략되면 `BlocConsumer`는 `BlocProvider`와 현재 `BuildContext`를 사용하여 자동으로 bloc을 조회합니다.
 
 <BlocConsumerSnippet />
 
